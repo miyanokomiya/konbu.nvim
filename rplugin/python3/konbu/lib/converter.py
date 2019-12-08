@@ -9,22 +9,25 @@ def convert_p(lines: List[str]) -> List[str]:
     blocks = text.split('\n\n')
 
     for block in blocks:
-        ret = ret + convert_block(block)
+        if block != '':
+            ret.append(convert_block(block))
 
     return ret
 
 
-def convert_block(block: str) -> List[str]:
+def convert_block(block: str) -> str:
     ret = []
 
     lines = block.split('\n')
     ret.append('<p>')
 
     for index, line in enumerate(lines):
-        if index > 0:
+        if line == '':
+            continue
+        elif index > 0:
             ret.append('<br/>' + line)
         else:
             ret.append(line)
 
     ret.append('</p>')
-    return ret
+    return ''.join(ret)
