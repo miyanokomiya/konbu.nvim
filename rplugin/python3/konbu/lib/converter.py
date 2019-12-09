@@ -25,9 +25,9 @@ def convert_block(block: str) -> str:
         if line == '':
             continue
         elif index > 0:
-            ret.append('<br/>' + line)
+            ret.append('<br/>' + line.strip())
         else:
-            ret.append(line)
+            ret.append(line.strip())
 
     ret.append('</p>')
     return ''.join(ret)

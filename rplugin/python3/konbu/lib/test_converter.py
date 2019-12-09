@@ -7,6 +7,8 @@ class TestConverter(TestCase):
         self.assertEqual(converter.convert_p(
             ['a', 'b']), ['<p>a<br/>b</p>'])
         self.assertEqual(converter.convert_p(
+            ['   a  ', ' b ']), ['<p>a<br/>b</p>'])
+        self.assertEqual(converter.convert_p(
             ['a', '', 'b']), ['<p>a</p>', '<p>b</p>'])
         self.assertEqual(converter.convert_p(
             ['a', '', '', 'b']), ['<p>a</p>', '<p>b</p>'])
